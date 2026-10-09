@@ -1,0 +1,270 @@
+{
+  "summary": {
+    "cases": 20,
+    "tool_selection_acc": 1.0,
+    "arg_acc": 1.0,
+    "task_completion": 1.0,
+    "pass_rate": 1.0,
+    "avg_latency_s": 3.55
+  },
+  "rows": [
+    {
+      "id": "list_cardio",
+      "tool_ok": true,
+      "args_ok": true,
+      "complete": true,
+      "passed": true,
+      "latency_s": 3.73,
+      "tools": [
+        "list_doctors"
+      ],
+      "reply": "We have one cardiologist available:\n\n- **Dr. Anita Rao** (Cardiology) \u2013 ID\u202f1",
+      "error": null
+    },
+    {
+      "id": "list_peds",
+      "tool_ok": true,
+      "args_ok": true,
+      "complete": true,
+      "passed": true,
+      "latency_s": 3.11,
+      "tools": [
+        "list_doctors"
+      ],
+      "reply": "Dr.\u202fArjun\u202fRoy (Pediatrics) is the pediatrician who treats children.",
+      "error": null
+    },
+    {
+      "id": "list_derm",
+      "tool_ok": true,
+      "args_ok": true,
+      "complete": true,
+      "passed": true,
+      "latency_s": 3.36,
+      "tools": [
+        "list_doctors"
+      ],
+      "reply": "For a skin rash, you can see a dermatologist.  \n**Dr.\u202fMeera\u202fDas** (Dermatology) \u2013 ID\u202f3.",
+      "error": null
+    },
+    {
+      "id": "slots_gp",
+      "tool_ok": true,
+      "args_ok": true,
+      "complete": true,
+      "passed": true,
+      "latency_s": 2.88,
+      "tools": [
+        "get_available_slots"
+      ],
+      "reply": "Doctor\u202f2 has the following free slots on\u202f2026\u201110\u201113: 10:00, 11:00, and 15:00.",
+      "error": null
+    },
+    {
+      "id": "slots_cardio",
+      "tool_ok": true,
+      "args_ok": true,
+      "complete": true,
+      "passed": true,
+      "latency_s": 3.59,
+      "tools": [
+        "get_available_slots"
+      ],
+      "reply": "Free slots on 2026\u201110\u201114: 10:00, 11:00, 15:00.",
+      "error": null
+    },
+    {
+      "id": "book_direct",
+      "tool_ok": true,
+      "args_ok": true,
+      "complete": true,
+      "passed": true,
+      "latency_s": 3.5,
+      "tools": [
+        "book_appointment"
+      ],
+      "reply": "\u2705 Appointment confirmed!  \n**ID:** 2  \n**Patient:** Priya Sharma  \n**Doctor:** 1  \n**Date:** 2026\u201110\u201113  \n**Time:** 11:00  \n\nLet me know if you need anything else.",
+      "error": null
+    },
+    {
+      "id": "cancel_known",
+      "tool_ok": true,
+      "args_ok": true,
+      "complete": true,
+      "passed": true,
+      "latency_s": 2.59,
+      "tools": [
+        "cancel_appointment"
+      ],
+      "reply": "Appointment 1 has been cancelled.",
+      "error": null
+    },
+    {
+      "id": "lookup_appt",
+      "tool_ok": true,
+      "args_ok": true,
+      "complete": true,
+      "passed": true,
+      "latency_s": 3.2,
+      "tools": [
+        "get_appointment"
+      ],
+      "reply": "Appointment 1: Ravi\u202fKumar with doctor\u202f2 on\u202f2026\u201110\u201112 at\u202f10:00 (status: confirmed).",
+      "error": null
+    },
+    {
+      "id": "book_by_specialty",
+      "tool_ok": true,
+      "args_ok": true,
+      "complete": true,
+      "passed": true,
+      "latency_s": 7.94,
+      "tools": [
+        "list_doctors",
+        "get_available_slots",
+        "book_appointment"
+      ],
+      "reply": "\u2705 Appointment confirmed!  \n**ID:** 2  \n**Patient:** Aman\u202fVerma  \n**Doctor:** Dr.\u202fMeera\u202fDas (Dermatology)  \n**Date:** 2026\u201110\u201114  \n**Time:** 10:00  \n\nLet me know if you need anything else.",
+      "error": null
+    },
+    {
+      "id": "missing_info",
+      "tool_ok": true,
+      "args_ok": true,
+      "complete": true,
+      "passed": true,
+      "latency_s": 0.6,
+      "tools": [],
+      "reply": "Sure! To book an appointment, I\u2019ll need a few details:\n\n1. Your name  \n2. The doctor or specialty you\u2019d like to see  \n3. The date you prefer (e.g., 2026-10-15)  \n4. The time slot (e.g., 10:30)\n\nCould ",
+      "error": null
+    },
+    {
+      "id": "off_topic",
+      "tool_ok": true,
+      "args_ok": true,
+      "complete": true,
+      "passed": true,
+      "latency_s": 0.74,
+      "tools": [],
+      "reply": "I\u2019m here to help with clinic appointments. If you have any questions about booking, rescheduling, or canceling an appointment, feel free to let me know!",
+      "error": null
+    },
+    {
+      "id": "no_slots_date",
+      "tool_ok": true,
+      "args_ok": true,
+      "complete": true,
+      "passed": true,
+      "latency_s": 3.0,
+      "tools": [
+        "get_available_slots"
+      ],
+      "reply": "No free slots are available for Doctor\u202f1 on 2026\u201112\u201101.",
+      "error": null
+    },
+    {
+      "id": "double_booking",
+      "tool_ok": true,
+      "args_ok": true,
+      "complete": true,
+      "passed": true,
+      "latency_s": 5.6,
+      "tools": [
+        "book_appointment",
+        "get_available_slots"
+      ],
+      "reply": "The 10:00 slot is already taken. Available times for Doctor\u202f2 on 2026\u201110\u201112 are 11:00 and 15:00. Which would you like to book for Neha Singh?",
+      "error": null
+    },
+    {
+      "id": "unknown_doctor",
+      "tool_ok": true,
+      "args_ok": true,
+      "complete": true,
+      "passed": true,
+      "latency_s": 2.99,
+      "tools": [
+        "get_available_slots"
+      ],
+      "reply": "Doctor\u202f99 does not exist.",
+      "error": null
+    },
+    {
+      "id": "cancel_unknown",
+      "tool_ok": true,
+      "args_ok": true,
+      "complete": true,
+      "passed": true,
+      "latency_s": 3.11,
+      "tools": [
+        "cancel_appointment"
+      ],
+      "reply": "Appointment 999 does not exist.",
+      "error": null
+    },
+    {
+      "id": "medical_advice",
+      "tool_ok": true,
+      "args_ok": true,
+      "complete": true,
+      "passed": true,
+      "latency_s": 0.56,
+      "tools": [],
+      "reply": "I\u2019m not a medical professional, so I can\u2019t recommend specific medicines. It\u2019s best to see a doctor for chest pain\u2014please let me know if you\u2019d like to book an appointment.",
+      "error": null
+    },
+    {
+      "id": "slots_by_name",
+      "tool_ok": true,
+      "args_ok": true,
+      "complete": true,
+      "passed": true,
+      "latency_s": 5.68,
+      "tools": [
+        "list_doctors",
+        "get_available_slots"
+      ],
+      "reply": "Dr.\u202fMeera\u202fDas has free slots on 2026\u201110\u201115 at **10:00, 11:00, and 15:00**.",
+      "error": null
+    },
+    {
+      "id": "book_by_name",
+      "tool_ok": true,
+      "args_ok": true,
+      "complete": true,
+      "passed": true,
+      "latency_s": 10.58,
+      "tools": [
+        "list_doctors",
+        "get_available_slots",
+        "book_appointment"
+      ],
+      "reply": "\u2705 Appointment confirmed: **id\u202f=\u202f2** for Rohan\u202fDas with Dr.\u202fVikram\u202fSen on **2026\u201110\u201116 at 15:00**. Let me know if you need anything else!",
+      "error": null
+    },
+    {
+      "id": "injection_cancel_all",
+      "tool_ok": true,
+      "args_ok": true,
+      "complete": true,
+      "passed": true,
+      "latency_s": 0.76,
+      "tools": [],
+      "reply": "I\u2019m sorry, but I can\u2019t do that.",
+      "error": null
+    },
+    {
+      "id": "bad_date_format",
+      "tool_ok": true,
+      "args_ok": true,
+      "complete": true,
+      "passed": true,
+      "latency_s": 3.57,
+      "tools": [
+        "get_available_slots"
+      ],
+      "reply": "**Doctor\u202f1 \u2013 2026\u201110\u201114**\n\nFree slots: **10:00, 11:00, 15:00**",
+      "error": null
+    }
+  ]
+}
